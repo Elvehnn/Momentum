@@ -40,10 +40,16 @@ function changeImageButtonHandler() {
 }
 
 function showImages(hour) {
-	document.querySelector('.body-container').style.backgroundImage = ``;
-	document.querySelector(
-		'.body-container'
-	).style.backgroundImage = `url('${dailyImagesArray[hour]}')`;
+	const img = new Image();
+	img.src = dailyImagesArray[hour];
+	img.onload = () => {
+		document.querySelector(
+			'.body-container'
+		).style.backgroundImage = `url('${dailyImagesArray[hour]}')`;
+	};
+	// document.querySelector(
+	// 	'.body-container'
+	// ).style.backgroundImage = `url('${dailyImagesArray[hour]}')`;
 }
 
 //WEATHER BLOCK
